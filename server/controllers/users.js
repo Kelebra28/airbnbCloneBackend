@@ -3,7 +3,7 @@ const createToken = require('../resolvers/createToken');
 
 
 const signUp = async(req,res) => {
-    let user = await Users.create(req.body)
+    let user = await Users.create(req.body).catch((error)=> res.status(400).json({error}))
 
     /*var user = null
     Users.create(req.body).then((new_user) => {
